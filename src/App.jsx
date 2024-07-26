@@ -1,34 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import data from './data';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selected, setSelected] = useState(null);
+  const [enableMultiSelection, setEnableMultiSelection] = useState(false);
+  const [multiple, setMultiple] = useState([]);
+
+  const handleSingleSelection = (getCurrentId) => {
+    setSelected(getCurrentId === selected ? null : getCurrentId)
+  }
+
+  const handleMultipleSelection = (getCurrentId) => {
+    const copyMultiple = [...multiple];
+    const findIndexOfCurrentId = copyMultiple.indexOf(getCurrentId);
+    if (findIndexOfCurrentId === -1) copyMultiple.push(getCurrentId)
+    else copyMultiple.splice(findIndexOfCurrentId, 1);
+    setMultiple(copyMultiple)
+    console.log(multiple)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="acc-wrapper">
+      <button
+        onClick={() => setEnableMultiSelection(!enableMultiSelection)}>
+        {enableMultiSelection ? "Multi" : "Single"} Selection
+      </button>
+
+      <div className="accordion">
+        {data && data.length > 0
+          ? data.map(dataItem => (
+            <div className="item" key={dataItem.id}>
+              <div
+                className="title"
+                onClick={() => enableMultiSelection
+                  ? handleMultipleSelection(dataItem.id)
+                  : handleSingleSelection(dataItem.id)
+                }
+              >
+                <h3>{dataItem.question}</h3>
+                <span>+</span>
+              </div>
+              {selected === dataItem.id || (enableMultiSelection && multiple.indexOf(dataItem.id) !== -1)
+                ? <div className="content">{dataItem.answer}</div>
+                : null}
+            </div>
+          ))
+          : <div>No data found</div>
+        }
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
