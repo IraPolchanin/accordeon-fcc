@@ -31,8 +31,13 @@ const RandomColorGen = () => {
 
   const rgbToHex = (color) => {
     setTypeOfColor('hex');
-    const hexColor = "#"+color.slice(4, -1).split(',').map(x=>+x).map(x => x.toString(16).padStart(2, '0')).join('').toUpperCase();
+    const hexColor = "#" + color.slice(4, -1).split(',').map(x => +x).map(x => x.toString(16).padStart(2, '0')).join('').toUpperCase();
     setColor(hexColor)
+  }
+
+  const btnSelectedStyle = {
+    color: 'gray',
+    cursor: 'not-allowed',
   }
 
   return (
@@ -43,8 +48,18 @@ const RandomColorGen = () => {
         background: color,
       }}
     >
-      <button onClick={() => rgbToHex(color)}>Transform to HEX Color</button>
-      <button onClick={() => hexToRgb(color)}>Transform to RGB Color</button>
+      <button
+        onClick={() => typeOfColor === 'rgb' ? rgbToHex(color) : setTypeOfColor('hex')}
+        style={typeOfColor === 'hex' ? btnSelectedStyle : null}
+      >
+        Transform to HEX Color
+      </button>
+      <button
+        onClick={() => typeOfColor === 'hex' ? hexToRgb(color) : setTypeOfColor('rgb')}
+        style={typeOfColor === 'rgb' ? btnSelectedStyle : null}
+      >
+        Transform to RGB Color
+      </button>
       <button onClick={typeOfColor === 'hex' ? getRandomHexColor : getRandomRGBColor}>
         Generate Random Color
       </button>
