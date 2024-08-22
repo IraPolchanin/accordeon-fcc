@@ -5,6 +5,8 @@ import RandomColorGen from "./components/random-color/RandomColorGen"
 import StarRating from "./components/star-rating/StarRating"
 import TreeView from "./components/tree-view/TreeView"
 import QrCodeGenerator from "./components/QR Code Generator/QrCodeGenerator"
+import LightDarkMode from "./components/light-dark-mode/LightDarkMode"
+import ScrollIndicator from "./components/scroll-Indicator/ScrollIndicator"
 
 function App() {
 
@@ -16,7 +18,9 @@ function App() {
       {/* <ImageSlider url={"https://picsum.photos/v2/list"} page={"1"} limit={"10"}/> */}
       {/* <LoadMoreData /> */}
       {/* <TreeView /> */}
-      <QrCodeGenerator />
+      {/* <QrCodeGenerator /> */}
+      {/* <LightDarkMode /> */}
+      <ScrollIndicator />
     </>
   )
 }
