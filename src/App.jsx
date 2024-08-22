@@ -7,6 +7,7 @@ import TreeView from "./components/tree-view/TreeView"
 import QrCodeGenerator from "./components/QR Code Generator/QrCodeGenerator"
 import LightDarkMode from "./components/light-dark-mode/LightDarkMode"
 import ScrollIndicator from "./components/scroll-Indicator/ScrollIndicator"
+import CustomTabs from "./components/custom-tabs/CustomTabs"
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
       {/* <TreeView /> */}
       {/* <QrCodeGenerator /> */}
       {/* <LightDarkMode /> */}
-      <ScrollIndicator />
+      {/* <ScrollIndicator /> */}
+      <CustomTabs />
     </>
   )
 }
