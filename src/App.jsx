@@ -8,6 +8,7 @@ import QrCodeGenerator from "./components/QR Code Generator/QrCodeGenerator"
 import LightDarkMode from "./components/light-dark-mode/LightDarkMode"
 import ScrollIndicator from "./components/scroll-Indicator/ScrollIndicator"
 import CustomTabs from "./components/custom-tabs/CustomTabs"
+import CustomModalPopup from "./components/custom-modal-popup/CustomModalPopup"
 
 function App() {
 
@@ -22,7 +23,8 @@ function App() {
       {/* <QrCodeGenerator /> */}
       {/* <LightDarkMode /> */}
       {/* <ScrollIndicator /> */}
-      <CustomTabs />
+      {/* <CustomTabs /> */}
+      <CustomModalPopup />
     </>
   )
 }
