@@ -9,6 +9,8 @@ import LightDarkMode from "./components/light-dark-mode/LightDarkMode"
 import ScrollIndicator from "./components/scroll-Indicator/ScrollIndicator"
 import CustomTabs from "./components/custom-tabs/CustomTabs"
 import CustomModalPopup from "./components/custom-modal-popup/CustomModalPopup"
+import GithubProfileFinder from "./components/github-profile-finder/GithubProfileFinder"
+import SearchAutocomplete from "./components/search-autocomplete-with-api/SearchAutocomplete"
 
 function App() {
 
@@ -24,7 +26,9 @@ function App() {
       {/* <LightDarkMode /> */}
       {/* <ScrollIndicator /> */}
       {/* <CustomTabs /> */}
-      <CustomModalPopup />
+      {/* <CustomModalPopup /> */}
+      {/* <GithubProfileFinder /> */}
+      <SearchAutocomplete />
     </>
   )
 }
