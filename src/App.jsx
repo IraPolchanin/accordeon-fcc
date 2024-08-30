@@ -17,6 +17,7 @@ import FeatureFlag from "./components/feature-flag/FeatureFlag"
 import UseFetchHookTest from "./components/useFetch/UseFetchHookTest"
 import UseOnclickOutsideTest from "./components/use-outside-click/UseOnclickOutsideTest"
 import UseWindowResizeTest from "./components/use-window-resize/UseWindowResizeTest"
+import ScrollToTopAndBottom from "./components/scroll-to-top-and-bottom/ScrollToTopAndBottom"
 
 function App() {
 
@@ -41,7 +42,8 @@ function App() {
       </FeatureFlagGlobalState> */}
      {/* <UseFetchHookTest /> */}
      {/* <UseOnclickOutsideTest /> */}
-     <UseWindowResizeTest/>
+     {/* <UseWindowResizeTest/> */}
+     <ScrollToTopAndBottom />
 
     </>
   )
